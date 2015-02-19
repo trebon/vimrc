@@ -44,12 +44,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=700
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -65,7 +59,17 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'honza/vim-snippets'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tomtom/tlib_vim'
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -78,6 +82,19 @@ call vundle#end()
 "
 " see :h vundle for more details or wiki for FAQ
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP Options
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = 'target\|git|.git'
+let g:ctrlp_max_depth = 30
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=700
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -87,7 +104,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+"let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
@@ -103,12 +120,17 @@ if &term == "screen" || &term == "xterm"
     set title
 endif
 
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
+
+set nu
+set rnu
 
 " Turn on the WiLd menu
 set wildmenu
