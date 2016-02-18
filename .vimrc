@@ -130,7 +130,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 set so=7
 
 set nu
-set rnu
 
 " Turn on the WiLd menu
 set wildmenu
